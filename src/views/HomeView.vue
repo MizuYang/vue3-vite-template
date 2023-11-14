@@ -1,32 +1,19 @@
 <template>
-  <p>{{ result }}</p>
+  <p class="text-primary-color position-absolute-center">
+    {{ userInfo.email }} <br />
+    {{ userInfo.phone }}
+  </p>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import axios from 'axios'
+import { storeToRefs } from 'pinia'
+import { useUserInfoStore } from '@/stores/userStore.js'
 
-// data
-const result = ref()
+// store
+const { getUserInfo } = useUserInfoStore()
+const { userInfo } = storeToRefs(useUserInfoStore())
 
-getAjax()
-
-async function getAjax () {
-  const config = {
-    msthod: 'get',
-    url: 'https://randomuser.me/api/',
-    data: {}
-  }
-  try {
-    const res = await axios(config)
-    console.log(res)
-    result.value = res.data.info.seed
-
-    console.log(result.value)
-  } catch (err) {
-    console.error(err)
-  }
-}
+getUserInfo()
 </script>
 
 <style lang='scss' scope></style>
