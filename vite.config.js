@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/儲存庫名稱/', //! 請輸入儲存庫名稱
   plugins: [vue()],
   resolve: {
     alias: [
