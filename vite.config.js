@@ -14,5 +14,8 @@ export default defineConfig({
       { find: '@stores', replacement: fileURLToPath(new URL('./src/shared/stores', import.meta.url)) },
       { find: '@use', replacement: fileURLToPath(new URL('./src/shared/use', import.meta.url)) }
     ]
+  },
+  server: {
+    host: '0.0.0.0'
   }
 })
